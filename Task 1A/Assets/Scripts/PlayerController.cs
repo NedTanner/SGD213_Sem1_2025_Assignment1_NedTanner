@@ -5,9 +5,13 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-	public float playerSpeed;
+    [Tooltip("Controls how fast the player accelerates.")]
+    public float playerSpeed;
 
-	public Text pickupText;
+    [Tooltip("The text that displays how many items the player ahs collected.")]
+    public Text pickupText;
+
+	[Tooltip("The image that displays the 'You Win!' text.")]
 	public GameObject winScreen;
 
 	private Rigidbody rb;
@@ -38,7 +42,7 @@ public class PlayerController : MonoBehaviour
 			SetCountText();
 		}
 	}
-	// Updates counter text and checks if win state is active.
+	// Updates counter text and checks if win state is active. If true, enables the win screen.
 	void SetCountText()
 	{
 		pickupText.text = "Cubes Collected: " + pickupCounter.ToString();
